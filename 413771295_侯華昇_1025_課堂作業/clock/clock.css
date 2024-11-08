@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+}
+/* 全域變數 */
+:root {
+  --primary-color: black;
+  --secondary-color: white;
+}
+html {
+  transition: all 0.5s ease;
+}
+html.dark {
+  --primary-color: white;
+  --secondary-color: gray;
+  background-color: #111;
+  color: var(--primary-color);
+}
+body {
+  margin: 0;
+  padding: 0;
+  display: flex; /*讓內容水平垂直置中*/
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+/* 背景轉換按鈕 */
+.toggle {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 100px;
+  cursor: pointer;
+}
+.toggle:focus {
+  outline: none;
+}
+/* 外部容器 */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: #f0f0f0;
+}
+/* 指針 */
+.needle {
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 65px;
+  width: 3px;
+  transform-origin: bottom center;
+}
+/* 時針 */
+.needle.hour {
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+/* 分針 */
+.needle.minute {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+}
+/* 秒針 */
+.needle.second {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+  background-color: red;
+}
+/* 時鐘的中心點 */
+.center-point {
+  background-color: red;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.center-point::after {
+  content: "";
+  background-color: var(--primary-color);
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.time {
+  font-size: 60px;
+}
+.date {
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.date .circle {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 50%;
+  height: 18px;
+  width: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 18px;
+  transition: all 0.5s ease-in;
+  font-size: 12px;
+}
